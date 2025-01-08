@@ -97,3 +97,44 @@ btnAC.addEventListener("click", () => {
     operator = null;
     display.textContent = currentNumber;
 });
+
+
+//operator buttons
+const btnAdd = document.querySelector("#btnAdd");
+btnAdd.addEventListener("click", () => {
+    a = Number(currentNumber);
+    currentNumber = "";
+    operator = add;
+    display.textContent = currentNumber;
+});
+
+const btnSubtract = document.querySelector("#btnSubract");
+btnSubtract.addEventListener("click", () => {
+    a = Number(currentNumber);
+    currentNumber = "";
+    operator = subtract;
+    display.textContent = currentNumber;
+});
+
+const btnMultiply = document.querySelector("#btnMultiply");
+btnMultiply.addEventListener("click", () => {
+    a = Number(currentNumber);
+    currentNumber = "";
+    operator = multiply;
+    display.textContent = currentNumber;
+});
+
+const btnDivide = document.querySelector("#btnDivide");
+btnDivide.addEventListener("click", () => {
+    a = Number(currentNumber);
+    currentNumber = "";
+    operator = divide;
+    display.textContent = currentNumber;
+});
+
+const btnEquals = document.querySelector("#btnEquals");
+btnEquals.addEventListener("click", () => {
+    b = Number(currentNumber);
+    currentNumber = operate(operator, a, b);
+    display.textContent = currentNumber;
+});
