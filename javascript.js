@@ -103,45 +103,37 @@ btnAC.addEventListener("click", () => {
 });
 
 
+function clickOperator(opType) {
+    a = Number(currentNumber);
+    currentNumber = "";
+    operator = opType;
+    displayNr.textContent = currentNumber;
+}
+
 //operator buttons
 const btnAdd = document.querySelector("#btnAdd");
 btnAdd.addEventListener("click", () => {
-    a = Number(currentNumber);
-    currentNumber = "";
-    operator = add;
-    displayNr.textContent = currentNumber;
+    clickOperator(add);
 });
 
 const btnSubtract = document.querySelector("#btnSubract");
 btnSubtract.addEventListener("click", () => {
-    a = Number(currentNumber);
-    currentNumber = "";
-    operator = subtract;
-    displayNr.textContent = currentNumber;
+    clickOperator(subtract);
 });
 
 const btnMultiply = document.querySelector("#btnMultiply");
 btnMultiply.addEventListener("click", () => {
-    a = Number(currentNumber);
-    currentNumber = "";
-    operator = multiply;
-    displayNr.textContent = currentNumber;
+    clickOperator(multiply);
 });
 
 const btnDivide = document.querySelector("#btnDivide");
 btnDivide.addEventListener("click", () => {
-    a = Number(currentNumber);
-    currentNumber = "";
-    operator = divide;
-    displayNr.textContent = currentNumber;
+    clickOperator(divide);
 });
 
 const btnMod = document.querySelector("#btnMod");
 btnMod.addEventListener("click", () => {
-    a = Number(currentNumber);
-    currentNumber = "";
-    operator = modulus;
-    displayNr.textContent = currentNumber;
+    clickOperator(modulus);
 });
 
 const btnEquals = document.querySelector("#btnEquals");
