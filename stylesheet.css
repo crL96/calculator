@@ -3,7 +3,7 @@
 }
 
 #container {
-    width: 300px;
+    max-width: 300px;
     height: 400px;
     border: 8px solid black;
     display: flex;
