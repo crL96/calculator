@@ -14,14 +14,18 @@ function divide(a, b) {
     return a / b;
 }
 
-let a = 0;
-let b = 0;
-let operator = null;
-let currentNumber = "";
+function modulus(a, b) {
+    return a % b;
+}
 
 function operate(operator, a, b) {
     return operator(a, b);
 }
+
+let a = 0;
+let b = 0;
+let operator = null;
+let currentNumber = "";
 
 const display = document.querySelector("#display");
 
@@ -129,6 +133,14 @@ btnDivide.addEventListener("click", () => {
     a = Number(currentNumber);
     currentNumber = "";
     operator = divide;
+    display.textContent = currentNumber;
+});
+
+const btnMod = document.querySelector("#btnMod");
+btnMod.addEventListener("click", () => {
+    a = Number(currentNumber);
+    currentNumber = "";
+    operator = modulus;
     display.textContent = currentNumber;
 });
 
