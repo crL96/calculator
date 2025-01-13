@@ -156,4 +156,5 @@ btnEquals.addEventListener("click", () => {
     currentNumber = operate(operator, a, b);
     operatorClicked = false;
     displayNr.textContent = currentNumber;
+    readyForClear = true;
 });
