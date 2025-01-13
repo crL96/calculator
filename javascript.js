@@ -92,6 +92,13 @@ btn0.addEventListener("click", () => {
     clickNumber("0");
 });
 
+const btnDot = document.querySelector("#btnDot");
+btnDot.addEventListener("click", () => {
+    if (currentNumber.includes(".") == false) {
+        clickNumber(".");
+    }
+});
+
 
 //Special buttons
 const btnAC = document.querySelector("#btnAC");
