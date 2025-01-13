@@ -112,6 +112,20 @@ btnAC.addEventListener("click", () => {
     readyForClear = false;
 });
 
+const btnNeg = document.querySelector("#btnNeg");
+btnNeg.addEventListener("click", () => {
+    currentNumber = String(currentNumber);
+    
+    if (currentNumber.includes("-") == true) {
+        currentNumber = currentNumber.substring(1);
+        displayNr.textContent = currentNumber;
+    }
+    else {
+        currentNumber = "-" + currentNumber;
+        displayNr.textContent = currentNumber;
+    }
+});
+
 
 function clickOperator(opType) {
     if (operatorClicked == true) {
