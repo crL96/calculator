@@ -26,69 +26,70 @@ let a = 0;
 let b = 0;
 let operator = null;
 let currentNumber = "";
+let operatorClicked = false;
+let readyForClear = false;
 
 const displayNr = document.querySelector("#displayNr");
 
 
+function clickNumber(num) {
+    if (readyForClear == true) {
+        currentNumber = "";
+        readyForClear = false;
+    }
+    currentNumber = currentNumber + num;
+    displayNr.textContent = currentNumber;
+}
+
 // All numerical buttons
 const btn1 = document.querySelector("#btn1");
 btn1.addEventListener("click", () => {
-    currentNumber = currentNumber + "1";
-    displayNr.textContent = currentNumber;
+    clickNumber("1");
 });
 
 const btn2 = document.querySelector("#btn2");
 btn2.addEventListener("click", () => {
-    currentNumber = currentNumber + "2";
-    displayNr.textContent = currentNumber;
+    clickNumber("2");
 });
 
 const btn3 = document.querySelector("#btn3");
 btn3.addEventListener("click", () => {
-    currentNumber = currentNumber + "3";
-    displayNr.textContent = currentNumber;
+    clickNumber("3");
 });
 
 const btn4 = document.querySelector("#btn4");
 btn4.addEventListener("click", () => {
-    currentNumber = currentNumber + "4";
-    displayNr.textContent = currentNumber;
+    clickNumber("4");
 });
 
 const btn5 = document.querySelector("#btn5");
 btn5.addEventListener("click", () => {
-    currentNumber = currentNumber + "5";
-    displayNr.textContent = currentNumber;
+    clickNumber("5");
 });
 
 const btn6 = document.querySelector("#btn6");
 btn6.addEventListener("click", () => {
-    currentNumber = currentNumber + "6";
-    displayNr.textContent = currentNumber;
+    clickNumber("6");
 });
 
 const btn7 = document.querySelector("#btn7");
 btn7.addEventListener("click", () => {
-    currentNumber = currentNumber + "7";
-    displayNr.textContent = currentNumber;
+    clickNumber("7");
 });
 
 const btn8 = document.querySelector("#btn8");
 btn8.addEventListener("click", () => {
-    currentNumber = currentNumber + "8";
-    displayNr.textContent = currentNumber;
+    clickNumber("8");
 });
 
 const btn9 = document.querySelector("#btn9");
 btn9.addEventListener("click", () => {
-    currentNumber = currentNumber + "9";
-    displayNr.textContent = currentNumber;
+    clickNumber("9");
 });
 
 const btn0 = document.querySelector("#btn0");
 btn0.addEventListener("click", () => {
-    currentNumber = currentNumber + "0";
-    displayNr.textContent = currentNumber;
+    clickNumber("0");
 });
 
 
@@ -100,14 +101,22 @@ btnAC.addEventListener("click", () => {
     b = 0;
     operator = null;
     displayNr.textContent = currentNumber;
+    operatorClicked = false;
+    readyForClear = false;
 });
 
 
 function clickOperator(opType) {
+    if (operatorClicked == true) {
+        b = Number(currentNumber);
+        currentNumber = operate(operator, a, b);
+        displayNr.textContent = currentNumber;
+    }
+   
     a = Number(currentNumber);
-    currentNumber = "";
     operator = opType;
-    displayNr.textContent = currentNumber;
+    operatorClicked = true;
+    readyForClear = true;
 }
 
 //operator buttons
@@ -138,7 +147,13 @@ btnMod.addEventListener("click", () => {
 
 const btnEquals = document.querySelector("#btnEquals");
 btnEquals.addEventListener("click", () => {
-    b = Number(currentNumber);
+    if (operatorClicked == true) {
+        b = Number(currentNumber);
+    }
+    else {
+        a = Number(currentNumber);
+    }   
     currentNumber = operate(operator, a, b);
+    operatorClicked = false;
     displayNr.textContent = currentNumber;
 });
