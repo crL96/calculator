@@ -1,27 +1,3 @@
-function add(a, b) {
-    return a + b;
-}
-
-function subtract(a, b) {
-    return a - b;
-}
-
-function multiply(a, b) {
-    return a * b;
-}
-
-function divide(a, b) {
-    return a / b;
-}
-
-function modulus(a, b) {
-    return a % b;
-}
-
-function operate(operator, a, b) {
-    return operator(a, b);
-}
-
 let a = 0;
 let b = 0;
 let operator = null;
@@ -31,16 +7,7 @@ let readyForClear = false;
 
 const displayNr = document.querySelector("#displayNr");
 
-
-function clickNumber(num) {
-    if (readyForClear == true) {
-        currentNumber = "";
-        readyForClear = false;
-    }
-    currentNumber = currentNumber + num;
-    displayNr.textContent = currentNumber;
-}
-
+// Buttons
 // All numerical buttons
 const btn1 = document.querySelector("#btn1");
 btn1.addEventListener("click", () => {
@@ -99,7 +66,6 @@ btnDot.addEventListener("click", () => {
     }
 });
 
-
 //Special buttons
 const btnAC = document.querySelector("#btnAC");
 btnAC.addEventListener("click", () => {
@@ -125,20 +91,6 @@ btnNeg.addEventListener("click", () => {
         displayNr.textContent = currentNumber;
     }
 });
-
-
-function clickOperator(opType) {
-    if (operatorClicked == true) {
-        b = Number(currentNumber);
-        currentNumber = operate(operator, a, b);
-        displayNr.textContent = currentNumber;
-    }
-   
-    a = Number(currentNumber);
-    operator = opType;
-    operatorClicked = true;
-    readyForClear = true;
-}
 
 //operator buttons
 const btnAdd = document.querySelector("#btnAdd");
@@ -179,3 +131,51 @@ btnEquals.addEventListener("click", () => {
     displayNr.textContent = currentNumber;
     readyForClear = true;
 });
+
+
+//Functions
+function add(a, b) {
+    return a + b;
+}
+
+function subtract(a, b) {
+    return a - b;
+}
+
+function multiply(a, b) {
+    return a * b;
+}
+
+function divide(a, b) {
+    return a / b;
+}
+
+function modulus(a, b) {
+    return a % b;
+}
+
+function operate(operator, a, b) {
+    return operator(a, b);
+}
+
+function clickOperator(opType) {
+    if (operatorClicked == true) {
+        b = Number(currentNumber);
+        currentNumber = operate(operator, a, b);
+        displayNr.textContent = currentNumber;
+    }
+    
+    a = Number(currentNumber);
+    operator = opType;
+    operatorClicked = true;
+    readyForClear = true;
+}
+
+function clickNumber(num) {
+    if (readyForClear == true) {
+        currentNumber = "";
+        readyForClear = false;
+    }
+    currentNumber = currentNumber + num;
+    displayNr.textContent = currentNumber;
+}
