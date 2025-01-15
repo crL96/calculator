@@ -17,6 +17,7 @@
     text-align: end;
     font-size: 40px;
     padding: 5px;
+    overflow-x: clip;
 }
 
 #buttonArea {
